@@ -1,25 +1,29 @@
+@font-face {
+    font-family: 'DM Sans';
+        src: url('./assets/fonts/DM-Sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+        font-weight: 100 900; /* plage de poids disponible */
+        font-style: normal;
+        font-display: swap;
+}
+@font-face {
+    font-family: 'DM Sans';
+    src: url('./assets/fonts/DM-Sans/DMSans-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+   /* Variables */
+   --neutral_900: #12131A;
+   --neutral-200:#E4E4EF;
+   /*--------------*/
+
+  font-family: 'DM Sans', Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  color: var(--neutral-200);
+  background-color: var(--neutral_900);
 }
 
 body {
@@ -39,7 +43,11 @@ h1 {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
 }
 
 .logo {
@@ -59,10 +67,7 @@ h1 {
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
-}
-
+/*
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -81,6 +86,7 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+*/
 
 @media (prefers-color-scheme: light) {
   :root {
