@@ -1,23 +1,26 @@
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-    <header>
-        <img src="./src/assets/images/logo-dark-theme.svg" alt="">
-        <img src="./src/assets/images/icon-sun.svg">
-    </header>
-  <div>
 
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
+  <section>
+    <form>
+        <textarea placeholder="Start typing her... (or paste your text)" id="bloc-text"></textarea>
+        <div id="bloc-settings">
+            <fieldset>
+                 <div>
+                     <input type="checkbox" id="exclude-spaces" name="exclude-spaces">
+                     <label for="exclude-spaces">Exclude Spaces</label>
+                 </div>
+                 <div>
+                     <input type="checkbox" id="set-character-limit" name="set-character-limit">
+                     <label for="set-character-limit">Set Character Limit</label>
+                 </div>
+             </fieldset>
+             <p>Approx. reading time: 0 minute</p>
+        </div>
+
+    </form>
+  </section>
 `
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+//setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)

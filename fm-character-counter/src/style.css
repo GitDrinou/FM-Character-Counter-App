@@ -15,56 +15,99 @@
 
 :root {
    /* Variables */
-   --neutral_900: #12131A;
+   --background-body-neutral-900: #12131A;
+   --background-input-neutral-700: #2A2B37;
    --neutral-200:#E4E4EF;
+   --font-size-preset-3: 1.25em;
+   --font-size-preset-4: 1em;
    /*--------------*/
 
   font-family: 'DM Sans', Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: var(--neutral-200);
-  background-color: var(--neutral_900);
+  background-color: var(--background-body-neutral-900);
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
+  margin: 0 auto;
+  width: 900px;
   min-width: 320px;
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  text-align: center;
+  padding: 20px;
 }
 
 header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
+h1 {
+  font-size: 4em;
+  letter-spacing: -1;
+  line-height:100%;
 }
 
-.card {
-  padding: 2em;
+section {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 780px;
+}
+
+#bloc-text{
+    width:740px;
+    height: 200px;
+    background-color: var(--background-input-neutral-700);
+    border:none;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+textarea::placeholder{
+    color: var(--neutral-200);
+    font-size: var(--font-size-preset-3);
+}
+
+#bloc-settings{
+    width:100%;
+    display: flex;
+    justify-content:space-between;
+    font-size:var(--font-size-preset-4);
+}
+
+fieldset {
+    border:none;
+    display:flex;
+    padding:10px;
+}
+
+input[type=checkbox] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+}
+
+input[type=checkbox] {
+    border-radius: 4px;
+    height: 16px;
+    width: 16px;
+    background: transparent;
+    border: 1px solid var(--neutral-200);
+    margin:0;
+}
+
+label {
+    padding: 0 20px 0 5px;
+}
+
+#bloc-settings p {
+    margin:0;
+    padding: 10px;
 }
 
 /*
