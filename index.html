@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./assets/images/favicon-32x32.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor - Character Counter</title>
+    <link rel="stylesheet" href="styles/style.css">
+  </head>
+  <body>
+    <header>
+      <img src="assets/images/logo-dark-theme.svg" alt="">
+      <img src="assets/images/icon-sun.svg" alt="">
+    </header>
+    <main>
+      <h1>Analyze your text<br>in real-time</h1>
+      <section class="form-container">
+        <form>
+          <fieldset class="bloc-text">
+            <label for="input-typing-text"></label>
+            <textarea placeholder="Start typing her... (or paste your text)" id="input-typing-text"></textarea>
+          </fieldset>
+          <div class="bloc-settings">
+            <fieldset>
+              <div>
+                <input type="checkbox" id="exclude-spaces" name="exclude-spaces">
+                <label for="exclude-spaces">Exclude Spaces</label>
+              </div>
+              <div>
+                <input type="checkbox" id="set-character-limit" name="set-character-limit">
+                <label for="set-character-limit">Set Character Limit</label>
+              </div>
+            </fieldset>
+            <p>Approx. reading time: 0 minute</p>
+          </div>
+        </form>
+      </section>
+      <section class="counters-container">
+        <section class="counters">
+          <section class="character-counter">
+            <section>
+              <p>00</p>
+              <p>Total Characters</p>
+            </section>
+          </section>
+          <section class="counter-word">
+            <p>00</p>
+            <p>Word Count</p>
+          </section>
+          <section class="counter-sentence">
+            <p>00</p>
+            <p>Sentence Count</p>
+          </section>
+        </section>
+      </section>
+      <section class="letter-density">
+        <h2>Letter Density</h2>
+        <p>No characters found. Start typing to see letter density.</p>
+      </section>
+    </main>
+  </body>
+</html>

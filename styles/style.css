@@ -5,6 +5,7 @@
    --color-neutral-900: #12131A;
    --background-input-neutral-700: #2A2B37;
    --color-purple-400:#D3A0FA;
+   --color-blue-500: #C27CF8;
    --color-yellow-500: #FF9F00;
    --color-orange-500:#FE8159;
    --neutral-200:#E4E4EF;
@@ -48,14 +49,14 @@ h2 {
     margin-bottom: 0;
 }
 
-section {
+.form-container, .counters-container {
     display: flex;
     justify-content: center;
     width: 100%;
     font-weight: 400;
 }
 
-#letter-density {
+.letter-density {
     display: grid;
     grid-template-rows: 1fr auto;
     text-align: left;
@@ -66,13 +67,22 @@ form {
     width: 100%;
 }
 
-#bloc-text{
+.bloc-text {
+    padding:0;
+    margin: 0;
+   & label {
+        display: none;
+    }
+}
+
+.input-typing-text{
     width:100%;
     height: 170px;
     background-color: var(--background-input-neutral-700);
-    border:none;
+    border: none;
     border-radius: 12px;
     padding: 20px;
+    margin: 0;
 }
 
 textarea::placeholder{
@@ -80,7 +90,7 @@ textarea::placeholder{
     font-size: var(--font-size-preset-3);
 }
 
-#bloc-settings{
+.bloc-settings{
     width:100%;
     display: flex;
     justify-content:space-between;
@@ -117,12 +127,12 @@ label {
     padding: 0 20px 0 5px;
 }
 
-#bloc-settings p {
+.bloc-settings p {
     margin:0;
     padding: 10px;
 }
 
-#counters {
+.counters {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 12px;
@@ -130,7 +140,7 @@ label {
     width:100%;
 }
 
-#counter-character, #counter-word, #counter-sentence {
+.character-counter, .counter-word, .counter-sentence {
     border-radius: 12px;
     text-align: left;
     padding: 10px;
@@ -138,7 +148,7 @@ label {
     grid-template-rows: 60% 40%;
 
 
-    & span:first-child {
+    & p:first-child {
         font-size: var(--font-size-preset-1);
         color: var(--color-neutral-900);
         font-weight:600;
@@ -146,7 +156,7 @@ label {
         padding:0;
     }
 
-    & span:last-child {
+    & p:last-child {
         font-size: var(--font-size-preset-3);
         letter-spacing: -1;
         color: var(--color-neutral-900);
@@ -156,18 +166,25 @@ label {
     }
 }
 
-#counter-character {
-   background-color: var(--color-purple-400);
-   background-image: url('./assets/images/pattern-character-count.svg');
+.character-counter {
+    background: linear-gradient(to right, var(--color-purple-400), var(--color-blue-500));
+    border: 1px solid blue;
+    & section {
+            background-position: right;
+            background-size: content;
+            background-repeat:  no-repeat;
+             background-image: url('../assets/images/pattern-character-count.svg');
+        }
 }
 
-#counter-word {
+
+.counter-word {
     background-color: var(--color-yellow-500);
     background-image: url('./assets/images/pattern-word-count.svg');
 }
 
 
-#counter-sentence {
+.counter-sentence {
     background-color: var(--color-orange-500);
     background-image: url('./assets/images/pattern-sentence-count.svg');
 }
