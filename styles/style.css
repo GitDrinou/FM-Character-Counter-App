@@ -75,7 +75,7 @@ form {
     }
 }
 
-.input-typing-text{
+#input-typing-text{
     width:100%;
     height: 170px;
     background-color: var(--background-input-neutral-700);
@@ -140,10 +140,10 @@ label {
     width:100%;
 }
 
-.character-counter, .counter-word, .counter-sentence {
+.character-counter, .word-counter, .sentence-counter {
     border-radius: 12px;
     text-align: left;
-    padding: 10px;
+    padding: 0 10px 0 10px;
     display: grid;
     grid-template-rows: 60% 40%;
 
@@ -152,7 +152,7 @@ label {
         font-size: var(--font-size-preset-1);
         color: var(--color-neutral-900);
         font-weight:600;
-        margin:0;
+        margin:10px 0 0 0;
         padding:0;
     }
 
@@ -161,32 +161,43 @@ label {
         letter-spacing: -1;
         color: var(--color-neutral-900);
         font-weight:400;
-        margin:0;
-        padding-top:8px;
+        margin-top:-10px;
     }
 }
 
 .character-counter {
-    background: linear-gradient(to right, var(--color-purple-400), var(--color-blue-500));
-    border: 1px solid blue;
-    & section {
-            background-position: right;
-            background-size: content;
-            background-repeat:  no-repeat;
-             background-image: url('../assets/images/pattern-character-count.svg');
-        }
+    background-color: var(--color-blue-500);
+    & > section {
+        height: max-content;
+        background-image: url('../assets/images/pattern-character-count.svg');
+        background-position: right;
+        background-size: auto;
+        background-repeat: repeat-y;
+    }
 }
 
 
-.counter-word {
+.word-counter {
     background-color: var(--color-yellow-500);
-    background-image: url('./assets/images/pattern-word-count.svg');
+    & > section {
+        height: max-content;
+        background-image: url('../assets/images/pattern-word-count.svg');
+        background-position: right;
+        background-size: auto;
+        background-repeat: repeat-y;
+    }
 }
 
 
-.counter-sentence {
+.sentence-counter {
     background-color: var(--color-orange-500);
-    background-image: url('./assets/images/pattern-sentence-count.svg');
+    & > section {
+            height: max-content;
+            background-image: url('../assets/images/pattern-sentence-count.svg');
+            background-position: right;
+            background-size: auto;
+            background-repeat: repeat-y;
+        }
 }
 
 @media (prefers-color-scheme: light) {
