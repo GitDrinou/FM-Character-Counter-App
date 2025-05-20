@@ -18,7 +18,7 @@
         <form>
           <fieldset class="bloc-text">
             <label for="input-typing-text"></label>
-            <textarea placeholder="Start typing her... (or paste your text)" id="input-typing-text"></textarea>
+            <textarea id="input-typing-text" name="input-typing-text" placeholder="Start typing her... (or paste your text)"></textarea>
           </fieldset>
           <div class="bloc-settings">
             <fieldset>
@@ -39,19 +39,19 @@
         <section class="counters">
           <section class="character-counter">
             <section>
-              <p>00</p>
+              <p id="counter-characters">00</p>
               <p>Total Characters</p>
             </section>
           </section>
           <section class="word-counter">
             <section>
-              <p>00</p>
+              <p id="counter-words">00</p>
               <p>Word Count</p>
             </section>
           </section>
           <section class="sentence-counter">
             <section>
-              <p>00</p>
+              <p id="counter-sentences">00</p>
               <p>Sentence Count</p>
             </section>
           </section>
@@ -62,5 +62,6 @@
         <p>No characters found. Start typing to see letter density.</p>
       </section>
     </main>
+    <script src="scripts/counters.js"></script>
   </body>
 </html>
