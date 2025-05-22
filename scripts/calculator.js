@@ -29,24 +29,53 @@ function displayResult() {
         charactersCounter.innerHTML = text.length;
 
         // words calculate
-        let sizeWordsArray = text.length === 0 ? text.split(" ").length : 0;
-        wordsCounter.innerHTML = sizeWordsArray.toString();
+        const words = text.trim().match(/\b\w+\b/g);
+        const wordsCount = words ? words.length : 0;
+        wordsCounter.innerHTML = wordsCount.toString();
 
         // sentences calculate
-        let sizeSentencesArray = text.split(". ").length;
-        sentencesCounter.innerHTML = sizeSentencesArray.toString();
+        const sentences = text.match(/[^.!?]+[.!?]+/g);
+        const sentencesCount = sentences ? sentences.length : 0;
+        sentencesCounter.innerHTML = sentencesCount.toString();
+
+    } else {
+        charactersCounter.innerHTML = "00";
+        wordsCounter.innerHTML = "00";
+        sentencesCounter.innerHTML = "00";
     }
 
     // letter density
     const letters = letterDensityCalculator(text);
-    let result = "";
+    const total = Object.keys(letters).length;
+
     if (Object.keys(letters).length === 0) {
         density.innerHTML = "No characters found. Start trying to see letter density."
     } else {
-        for (let letter in letters){
-            result += `${letter} : ${letters[letter]}\n`;
+        const lettersOrdered = Object.entries(letters)
+            .sort((a, b) => b[1] - a[1]);
+
+        density.innerHTML = "";
+
+        for (let [letter, count] of lettersOrdered){
+            const percentage = ((count / total ) * 100).toFixed(1);
+
+            const container = document.createElement('pre');
+
+            const labelLetter = document.createElement('span');
+            labelLetter.textContent = `${letter} `;
+
+            const progress = document.createElement('progress');
+            progress.value = count;
+            progress.max = total;
+
+            const labelPercent = document.createElement('span');
+            labelPercent.textContent = ` ${count}(${percentage}%)`
+
+            container.appendChild(labelLetter);
+            container.appendChild(progress);
+            container.appendChild(labelPercent);
+            density.appendChild(container);
         }
-        density.innerHTML = result;
     }
 
 }
