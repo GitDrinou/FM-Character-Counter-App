@@ -1,11 +1,18 @@
 // variables declarations
 const textarea = document.getElementById("input-typing-text");
+const excludeSpaces = document.getElementById("exclude-spaces");
 let charactersCounter = document.getElementById("counter-characters");
 let wordsCounter = document.getElementById("counter-words");
 let sentencesCounter = document.getElementById("counter-sentences");
 let density = document.getElementById("density");
 
+let isExcludesSpacesChecked = false;
+
 textarea.addEventListener("input", displayResult);
+
+excludeSpaces.addEventListener('change', (event) => {
+    isExcludesSpacesChecked = event.target.checked;
+})
 
 displayResult();
 
@@ -24,9 +31,10 @@ function letterDensityCalculator(text){
 
 function displayResult() {
     const text = textarea.value;
+
     if (text.length > 0) {
         // characters calculate
-        charactersCounter.innerHTML = text.length;
+        charactersCounter.innerHTML = isExcludesSpacesChecked ? text.trim().length : text.length;
 
         // words calculate
         const words = text.trim().match(/\b\w+\b/g);

@@ -106,13 +106,12 @@ fieldset {
     padding:10px;
 }
 
-input[type=checkbox] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-}
+.checkboxes {
+    display:flex;
+    align-items: start;
+ }
 
-input[type=checkbox] {
+input[type="checkbox"] {
     border-radius: 4px;
     height: 16px;
     width: 16px;
@@ -121,9 +120,26 @@ input[type=checkbox] {
     margin:0;
 }
 
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
 input[type="checkbox"]:checked {
-  background: var(--color-purple-400);
-  margin:0px;
+    background: var(--color-purple-400);
+    margin:0;
+    color: var(--color-neutral-900);
+}
+
+input[type="checkbox"]:checked::after {
+    content: "✔";
+    color: var(--color-neutral-900);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
 }
 
 label {
