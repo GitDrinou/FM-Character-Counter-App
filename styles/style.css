@@ -98,6 +98,7 @@ textarea::placeholder{
     display: flex;
     justify-content:space-between;
     font-size:var(--font-size-preset-4);
+    padding-top: 8px;
 }
 
 fieldset {
@@ -143,12 +144,22 @@ input[type="checkbox"]:checked::after {
 }
 
 label {
-    padding: 0 20px 0 5px;
+    margin-top: -2px;
+    padding: 0 20px 0 8px;
 }
 
 .bloc-settings p {
     margin:0;
     padding: 10px;
+}
+
+.input-limit {
+    background-color: transparent;
+    border: 1px solid var(--neutral-200);
+    width: 48px;
+    border-radius: 5px;
+    color: var(--neutral-200);
+    text-align: right;
 }
 
 .counters {

@@ -1,18 +1,28 @@
 // variables declarations
 const textarea = document.getElementById("input-typing-text");
 const excludeSpaces = document.getElementById("exclude-spaces");
+const charactersLimit = document.getElementById("set-character-limit");
+const valCharacterLimit = document.getElementById("number-limit");
 let charactersCounter = document.getElementById("counter-characters");
 let wordsCounter = document.getElementById("counter-words");
 let sentencesCounter = document.getElementById("counter-sentences");
 let density = document.getElementById("density");
 
 let isExcludesSpacesChecked = false;
+let isCharacterLimitChecked = false;
+
 
 textarea.addEventListener("input", displayResult);
 
 excludeSpaces.addEventListener('change', (event) => {
     isExcludesSpacesChecked = event.target.checked;
-})
+});
+
+charactersLimit.addEventListener('change', (event) => {
+    isCharacterLimitChecked = event.target.checked;
+    valCharacterLimit.hidden = !isCharacterLimitChecked;
+});
+
 
 displayResult();
 
