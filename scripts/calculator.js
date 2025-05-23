@@ -64,15 +64,29 @@ function displayResult() {
             const labelLetter = document.createElement('span');
             labelLetter.textContent = `${letter} `;
 
+            // use for accessibility
             const progress = document.createElement('progress');
             progress.value = count;
             progress.max = total;
+
+            // use for display the wanted design layout
+            const customProgress = document.createElement('div');
+            customProgress.className = "custom-progress";
+            customProgress.role = "presentation";
+            customProgress.ariaHidden = "true";
+
+            const customFillProgress = document.createElement('div');
+            customFillProgress.className = "custom-fill";
+            customFillProgress.style.width = percentage + '%';
+
+            customProgress.appendChild(customFillProgress);
 
             const labelPercent = document.createElement('span');
             labelPercent.textContent = ` ${count}(${percentage}%)`
 
             container.appendChild(labelLetter);
             container.appendChild(progress);
+            container.appendChild(customProgress);
             container.appendChild(labelPercent);
             density.appendChild(container);
         }

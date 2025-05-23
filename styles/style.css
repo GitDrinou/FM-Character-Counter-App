@@ -3,6 +3,7 @@
 :root {
    /* Variables */
    --color-neutral-900: #12131A;
+    --color-neutral-600: #101254;
    --background-input-neutral-700: #2A2B37;
    --color-purple-400:#D3A0FA;
    --color-blue-500: #C27CF8;
@@ -57,10 +58,7 @@ h2 {
 }
 
 .letter-density {
-    display: grid;
-    grid-template-rows: 1fr auto;
     text-align: left;
-    justify-content: left;
 }
 
 form {
@@ -204,6 +202,41 @@ label {
             background-repeat: repeat-y;
         }
 }
+
+pre {
+    display: grid;
+    grid-template-columns: 5% 88% 5%;
+}
+
+progress {
+    inline-size: 100%;
+    block-size: 2em;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.custom-progress {
+    width: 100%;
+    height: 16px;
+    background-color: var(--background-input-neutral-700);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.custom-fill {
+    height: 100%;
+    background-color: var(--color-blue-500);
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 10px 0 0 10px;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {
