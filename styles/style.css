@@ -77,7 +77,6 @@ form {
     width:100%;
     height: 170px;
     background-color: var(--background-input-neutral-700);
-    border: none;
     border-radius: 12px;
     padding: 20px;
     margin: 0;
@@ -99,6 +98,10 @@ textarea::placeholder{
     justify-content:space-between;
     font-size:var(--font-size-preset-4);
     padding-top: 8px;
+}
+
+.bloc-settings p {
+    margin: 0;
 }
 
 fieldset {
@@ -148,9 +151,9 @@ label {
     padding: 0 20px 0 8px;
 }
 
-.bloc-settings p {
-    margin:0;
-    padding: 10px;
+.checkboxes {
+    padding: 0;
+    margin-top: 5px;
 }
 
 .input-limit {
@@ -160,6 +163,28 @@ label {
     border-radius: 5px;
     color: var(--neutral-200);
     text-align: right;
+}
+
+#error-container {
+    display: none;
+    margin: 0;
+    padding-top: 10px;
+    text-align: left;
+    color: red;
+}
+
+.valid {
+    border: none;
+}
+
+.invalid {
+    border: 2px solid red;
+}
+
+.invalid:focus {
+    border-color: red;
+    box-shadow: 0 0 5px red;
+    outline: none;
 }
 
 .counters {

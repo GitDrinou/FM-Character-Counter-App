@@ -2,6 +2,8 @@
 const textarea = document.getElementById("input-typing-text");
 const excludeSpaces = document.getElementById("exclude-spaces");
 const charactersLimit = document.getElementById("set-character-limit");
+const errorMessage = document.getElementById("error-container");
+const infoError = document.getElementById("info-limit");
 const valCharacterLimit = document.getElementById("number-limit");
 let charactersCounter = document.getElementById("counter-characters");
 let wordsCounter = document.getElementById("counter-words");
@@ -10,7 +12,6 @@ let density = document.getElementById("density");
 
 let isExcludesSpacesChecked = false;
 let isCharacterLimitChecked = false;
-
 
 textarea.addEventListener("input", displayResult);
 
@@ -22,7 +23,6 @@ charactersLimit.addEventListener('change', (event) => {
     isCharacterLimitChecked = event.target.checked;
     valCharacterLimit.hidden = !isCharacterLimitChecked;
 });
-
 
 displayResult();
 
@@ -41,10 +41,21 @@ function letterDensityCalculator(text){
 
 function displayResult() {
     const text = textarea.value;
+    let charactersCount = 0;
+    const limit = parseInt(valCharacterLimit.value, 10);
 
     if (text.length > 0) {
         // characters calculate
-        charactersCounter.innerHTML = isExcludesSpacesChecked ? text.trim().length : text.length;
+        charactersCount = isExcludesSpacesChecked ? text.trim().length : text.length
+        charactersCounter.innerHTML = charactersCount;
+        if (!isNaN(limit) && charactersCount > limit) {
+          errorMessage.style.display = "block";
+          textarea.classList.add("invalid");
+          infoError.innerHTML = limit.toString();
+        } else {
+            errorMessage.style.display = "none";
+            textarea.classList.remove("invalid");
+        }
 
         // words calculate
         const words = text.trim().match(/\b\w+\b/g);

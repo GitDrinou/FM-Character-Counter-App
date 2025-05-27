@@ -18,8 +18,12 @@
         <form>
           <fieldset class="bloc-text">
             <label for="input-typing-text"></label>
-            <textarea id="input-typing-text" name="input-typing-text" placeholder="Start typing her... (or paste your text)"></textarea>
+            <textarea id="input-typing-text" name="input-typing-text" placeholder="Start typing her... (or paste your text)" class="valid"></textarea>
           </fieldset>
+          <div id="error-container">
+            <img src="assets/images/icon-info.svg" alt="">
+            <span class="error-message">Limit reached! Your text exceeds <span id="info-limit"></span> characters.</span>
+          </div>
           <div class="bloc-settings">
                <fieldset class="checkboxes">
                 <input type="checkbox" id="exclude-spaces" name="exclude-spaces">
@@ -28,10 +32,10 @@
                 <input type="checkbox" id="set-character-limit" name="set-character-limit">
                 <label for="set-character-limit">Set Character Limit</label>
 
-                <input type="text" aria-label="number set for character limit" id = "number-limit" class="input-limit" hidden>
+                <input type="text" aria-label="number set for character limit" id="number-limit" class="input-limit" hidden>
               </fieldset>
 
-            <p>Approx. reading time: 0 minute</p>
+              <p>Approx. reading time: 0 minute</p>
           </div>
         </form>
       </section>
