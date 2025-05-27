@@ -1,4 +1,5 @@
 // variables declarations
+const toggle = document.getElementById("theme-toggle");
 const textarea = document.getElementById("input-typing-text");
 const excludeSpaces = document.getElementById("exclude-spaces");
 const charactersLimit = document.getElementById("set-character-limit");
@@ -12,6 +13,13 @@ let density = document.getElementById("density");
 
 let isExcludesSpacesChecked = false;
 let isCharacterLimitChecked = false;
+const themeIcons = {
+    light: "assets/images/icon-moon.svg",
+    dark: "assets/images/icon-sun.svg",
+};
+
+const isDarkModeSystem = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const modeTheme = isDarkModeSystem ? "dark" : "light";
 
 textarea.addEventListener("input", displayResult);
 
@@ -24,7 +32,22 @@ charactersLimit.addEventListener('change', (event) => {
     valCharacterLimit.hidden = !isCharacterLimitChecked;
 });
 
+
+applyTheme(modeTheme);
 displayResult();
+
+function applyTheme(theme){
+    document.body.classList.remove("light", "dark");
+    document.body.classList.add(theme);
+    toggle.src = themeIcons[theme];
+}
+function toggleTheme() {
+    const currentTheme = document.body.classList.contains("dark") ? "dark" : "light";
+    const nextTheme = currentTheme === "dark" ? "light" : "dark";
+    applyTheme(nextTheme);
+}
+
+toggle.addEventListener("click", toggleTheme);
 
 function letterDensityCalculator(text){
     const counter = {};

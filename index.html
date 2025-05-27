@@ -10,7 +10,7 @@
   <body>
     <header>
       <img src="assets/images/logo-dark-theme.svg" alt="">
-      <img src="assets/images/icon-sun.svg" alt="">
+      <img src="assets/images/icon-sun.svg" alt="Theme toggle - Dark or Light Mode" id="theme-toggle">
     </header>
     <main>
       <h1>Analyze your text<br>in real-time</h1>
@@ -26,13 +26,16 @@
           </div>
           <div class="bloc-settings">
                <fieldset class="checkboxes">
-                <input type="checkbox" id="exclude-spaces" name="exclude-spaces">
-                <label for="exclude-spaces">Exclude Spaces</label>
+                 <div>
+                   <input type="checkbox" id="exclude-spaces" name="exclude-spaces">
+                   <label for="exclude-spaces">Exclude Spaces</label>
+                 </div>
+                  <div>
+                    <input type="checkbox" id="set-character-limit" name="set-character-limit">
+                    <label for="set-character-limit">Set Character Limit</label>
+                    <input type="text" aria-label="number set for character limit" id="number-limit" class="input-limit" hidden>
+                  </div>
 
-                <input type="checkbox" id="set-character-limit" name="set-character-limit">
-                <label for="set-character-limit">Set Character Limit</label>
-
-                <input type="text" aria-label="number set for character limit" id="number-limit" class="input-limit" hidden>
               </fieldset>
 
               <p>Approx. reading time: 0 minute</p>
