@@ -16,7 +16,6 @@
    --font-size-preset-4: 1em;
    /*--------------*/
 
-    color-scheme: light dark;
     font-family: 'DM Sans', sans-serif;
     line-height: 1.5;
     font-weight: 400;
@@ -29,42 +28,6 @@ body {
   min-height: 100vh;
   text-align: center;
   padding: 20px;
-}
-
-body.light{
-    background-color: var(--neutral-200);;
-    color: var(--color-neutral-900)
-}
-
-body.dark {
-    background-color: var(--color-neutral-900);
-    color: var(--neutral-200);
-}
-
-body.dark textarea#input-typing-text {
-    background-color: var(--background-input-neutral-700);
-    color: var(--neutral-200);
-}
-
-body.light textarea#input-typing-text {
-    background-color: var(--neutral-100);
-    color: var(--color-neutral-900);
-}
-
-body.dark textarea::placeholder{
-    color: var(--neutral-200);
-}
-
-body.light textarea::placeholder{
-    color: var(--color-neutral-900);
-}
-
-body.dark input[type="checkbox"], .input-limit{
-    border: 1px solid var(--neutral-200);
-}
-
-body.light input[type="checkbox"], .input-limit{
-    border: 1px solid var(--color-neutral-900);
 }
 
 
