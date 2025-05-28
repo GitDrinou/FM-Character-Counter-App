@@ -6,13 +6,16 @@ const charactersLimit = document.getElementById("set-character-limit");
 const errorMessage = document.getElementById("error-container");
 const infoError = document.getElementById("info-limit");
 const valCharacterLimit = document.getElementById("number-limit");
-let charactersCounter = document.getElementById("counter-characters");
-let wordsCounter = document.getElementById("counter-words");
-let sentencesCounter = document.getElementById("counter-sentences");
-let density = document.getElementById("density");
+const charactersCounter = document.getElementById("counter-characters");
+const wordsCounter = document.getElementById("counter-words");
+const sentencesCounter = document.getElementById("counter-sentences");
+const density = document.getElementById("density");
+const moreButton = document.getElementById("more");
 
 let isExcludesSpacesChecked = false;
 let isCharacterLimitChecked = false;
+let lettersDensity= [];
+let totalLetters = 0;
 const themeIcons = {
     light: "assets/images/icon-moon.svg",
     dark: "assets/images/icon-sun.svg",
@@ -32,6 +35,10 @@ charactersLimit.addEventListener('change', (event) => {
     valCharacterLimit.hidden = !isCharacterLimitChecked;
 });
 
+moreButton.addEventListener("click", () => {
+    displayDensity(lettersDensity, totalLetters);
+    moreButton.style.display = "none";
+})
 
 applyTheme(modeTheme);
 displayResult();
@@ -41,6 +48,7 @@ function applyTheme(theme){
     document.body.classList.add(theme);
     toggle.src = themeIcons[theme];
 }
+
 function toggleTheme() {
     const currentTheme = document.body.classList.contains("dark") ? "dark" : "light";
     const nextTheme = currentTheme === "dark" ? "light" : "dark";
@@ -103,45 +111,54 @@ function displayResult() {
     if (Object.keys(letters).length === 0) {
         density.innerHTML = "No characters found. Start trying to see letter density."
     } else {
-        const lettersOrdered = Object.entries(letters)
+        let lettersOrdered = Object.entries(letters)
             .sort((a, b) => b[1] - a[1]);
+        lettersDensity = lettersOrdered;
+        totalLetters = total;
+        displayDensity(lettersDensity.slice(0,5), totalLetters);
 
-        density.innerHTML = "";
-
-        for (let [letter, count] of lettersOrdered){
-            const percentage = ((count / total ) * 100).toFixed(1);
-
-            const container = document.createElement('pre');
-
-            const labelLetter = document.createElement('span');
-            labelLetter.textContent = `${letter} `;
-
-            // use for accessibility
-            const progress = document.createElement('progress');
-            progress.value = count;
-            progress.max = total;
-
-            // use for display the wanted design layout
-            const customProgress = document.createElement('div');
-            customProgress.className = "custom-progress";
-            customProgress.role = "presentation";
-            customProgress.ariaHidden = "true";
-
-            const customFillProgress = document.createElement('div');
-            customFillProgress.className = "custom-fill";
-            customFillProgress.style.width = percentage + '%';
-
-            customProgress.appendChild(customFillProgress);
-
-            const labelPercent = document.createElement('span');
-            labelPercent.textContent = ` ${count}(${percentage}%)`
-
-            container.appendChild(labelLetter);
-            container.appendChild(progress);
-            container.appendChild(customProgress);
-            container.appendChild(labelPercent);
-            density.appendChild(container);
+        if (lettersOrdered.length > 5) {
+            moreButton.style.display = "inline";
+        } else {
+            moreButton.style.display = "none";
         }
     }
+}
 
+function displayDensity(letters, total) {
+
+    density.innerHTML = "";
+
+    for (let [letter, count] of letters){
+        const percentage = ((count / total ) * 100).toFixed(1);
+        const container = document.createElement('pre');
+        const labelLetter = document.createElement('span');
+        labelLetter.textContent = `${letter} `;
+
+        // use for accessibility
+        const progress = document.createElement('progress');
+        progress.value = count;
+        progress.max = total;
+
+        // use for display the wanted design layout
+        const customProgress = document.createElement('div');
+        customProgress.className = "custom-progress";
+        customProgress.role = "presentation";
+        customProgress.ariaHidden = "true";
+
+        const customFillProgress = document.createElement('div');
+        customFillProgress.className = "custom-fill";
+        customFillProgress.style.width = percentage + '%';
+
+        customProgress.appendChild(customFillProgress);
+
+        const labelPercent = document.createElement('span');
+        labelPercent.textContent = ` ${count}(${percentage}%)`
+
+        container.appendChild(labelLetter);
+        container.appendChild(progress);
+        container.appendChild(customProgress);
+        container.appendChild(labelPercent);
+        density.appendChild(container);
+    }
 }

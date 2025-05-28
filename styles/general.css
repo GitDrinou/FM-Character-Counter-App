@@ -42,7 +42,6 @@ img#theme-toggle {
     transition: transform 0.3s;
 }
 
-
 h1 {
   padding-bottom: 12px;
   font-size: var(--font-size-preset-1);
@@ -287,6 +286,16 @@ progress {
     border-radius: 10px 0 0 10px;
 }
 
+#more {
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    border: none;
+    font-size: var(--font-size-preset-4);
+    padding: 0;
+    cursor: pointer;
+    display: none;
+}
+
 @media only screen and (max-width: 480px){
 
     .bloc-settings{
@@ -307,17 +316,4 @@ progress {
         display: flex;
         flex-direction: column;
     }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
