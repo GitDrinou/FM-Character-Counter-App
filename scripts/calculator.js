@@ -1,4 +1,4 @@
-// variables declarations
+// variables declarations Here -------------
 const toggle = document.getElementById("theme-toggle");
 const textarea = document.getElementById("input-typing-text");
 const excludeSpaces = document.getElementById("exclude-spaces");
@@ -26,6 +26,8 @@ const modeTheme = isDarkModeSystem ? "dark" : "light";
 
 textarea.addEventListener("input", displayResult);
 
+toggle.addEventListener("click", toggleTheme);
+
 excludeSpaces.addEventListener('change', (event) => {
     isExcludesSpacesChecked = event.target.checked;
 });
@@ -43,6 +45,7 @@ moreButton.addEventListener("click", () => {
 applyTheme(modeTheme);
 displayResult();
 
+// Functions Here --------------------------
 function applyTheme(theme){
     document.body.classList.remove("light", "dark");
     document.body.classList.add(theme);
@@ -54,8 +57,6 @@ function toggleTheme() {
     const nextTheme = currentTheme === "dark" ? "light" : "dark";
     applyTheme(nextTheme);
 }
-
-toggle.addEventListener("click", toggleTheme);
 
 function letterDensityCalculator(text){
     const counter = {};
